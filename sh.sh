@@ -1,4 +1,4 @@
-/*** General reference ***/ speedguide.net
+/*** General reference ***/ #speedguide.net #https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers
 Port(s)|Protocol|Service|Details
 88|udp|Kerberos|KDC (Kerberos key distribution center) server.Related ports: 464,543,544,749,751
 2232|tcp,udp|,|,
