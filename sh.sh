@@ -3,9 +3,9 @@ Port(s)|Protocol|Service|Details
 88|udp|Kerberos|KDC (Kerberos key distribution center) server.Related ports: 464,543,544,749,751
 2232|tcp,udp|,|,
 22|udp,tcp,sctp|ssh|Secure Shell - most common use is command line access, secure replacement of Telnet. Could also be used as an encrypted tunnel for secure communication of virtually any service [RFC 4251], [RFC 4960]
+8080|tcp|http|Hyper Text Transfer Protocol (HTTP) - alternative port used for web traffic. See also TCP ports 80, 81.
 2225|tcp,sctp,WinSCP|rcip-itu|Resource Connection Initiation Protocol, Stream Control Transmission Protocol
-8443|tcp,udp|applications,J/ODBC|Common alternative https port.
-PCSync HTTPS (SSL), SW Soft Plesk Control Panel, Apache Tomcat SSL, iCal service (SSL), Cisco WaaS Central Manager (SSL administration port)
+8443|tcp,udp|applications,J/ODBC|Common alternative https port. PCSync HTTPS (SSL), SW Soft Plesk Control Panel, Apache Tomcat SSL, iCal service (SSL), Cisco WaaS Central Manager (SSL administration port)
 
 tcp/udp PuTTy ssh 127.0.1.1:2232
 
