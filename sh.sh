@@ -28,4 +28,6 @@ netstat -an | grep LISTEN | grep 9000
 ssh -vvv -i "C:/Tools/aws/aws-test-key-file-kss.pem" ec2-user@ec2-52-38-154-206.us-west-2.compute.amazonaws.com -p 22
 
 %scp
- scp -P 2225 '\\networkDrive\share\Folder with space\file.txt' user@127.0.1.2:dest-folder/destFile.txt
+ scp -P 2225 '\\networkDrive\share\Folder with space\file.txt' user@127.0.1.2:dest-folder/destFile.txt # windows network drive
+ scp -P 2225 /cygdrive/c/Users/tkb2171/Downloads/ml-100k/ml-100k/u.data tkb2171@127.0.1.2:home # windows cydrive
+
