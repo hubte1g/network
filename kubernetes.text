@@ -1,0 +1,88 @@
+vpc-k8s
+
+> subnet > ec2 vm's, relative opts: vpce, vpce/s on host w/ nlb
+
+CIDR example
+[172.31.0].0/24(first 3 octets, network)
+
+octet(8bit).octet(8bit).. 
+network - 24
+host - 8 ... 2^8bit = 256 servers. -- divide into subnets
+
+[172.32.0]frozenbits[.0] / []leading 
+172.32.0.0/16
+network - 16
+host - (32-16) = 16 -> 2^16 = 65536?
+
+https://en.wikipedia.org/wiki/List_of_Ghostbusters_characters#Ivo_Shandor
+
+Amazon Elastic Compute Cloud (Amazon EC2)
+ > Number of EIPs - VPC EIPs = _
+
+Deleting VPC also deletes, or necessitates delete on: 
+Subnets
+Security Groups
+Network ACLs
+Internet Gateways
+Egress Only Internet Gateways
+Route Tables
+Network Interfaces
+Peering Connections
+Endpoints
+
+aws ec2 describe-vpcs
+kc config view
+kc version --short
+https://raw.githubusercontent.com/Homebrew/homebrew-core/e45c0cdec9460e2d6606368d15cc58b686a76d61/Formula/kubernetes-cli.rb
+
+ssh:
+vpc ->
+kops ->
+node
+journalctl | grep Failed
+cat /etc/var/kube-apiserver.log
+
+Dump and inspect ops logs:
+kops validate cluster -v 10 &> log.txt
+
+Jump to nodes and view logs
+1. Add Security Group inbound rule to kops bastion-
+Type: SSH, Protocol: TCP, Port Range: 22, Source: <vpc_cidr>
+        CIDR                    0.0.0.0/0
+        Protocol                tcp
+        FromPort                22
+        ToPort                  22
+
+2. ssh to VPC bastion, then to kops bastion (assumes Debian) (ssh -A admin@<private-ip>), then to node (same).
+3.1 journalctl
+
+3.2 /var/log/
+cat var/etc/manifests/kube-proxy.manifest
+
+3.3 cd $HOME && cd .. 
+cat kubernetes/bin/iptables-setup
+
+kc get cs
+kc config view
+kc cluster-info
+journalctl -xeu kubelet
+use admin/pw from config
+
+systemctl stop kubelet
+systemctl stop docker
+iptables --flush
+iptables -tnat --flush
+systemctl start kubelet
+systemctl start docker
+
+sudo su - root
+systemctl
+systemctl status kubelet
+
+# helm 3    ...  notes: helm upgrade --install
+helm repo add stable https://kubernetes-charts.storage.googleapis.com
+helm repo update
+
+helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com/
+helm list --all
+helm ls --all-namespaces
